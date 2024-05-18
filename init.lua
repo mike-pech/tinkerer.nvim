@@ -1,0 +1,53 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+require 'core.lazy'
+require 'core.keybinds'
+require 'plugins.telescope'
+require 'plugins.treesitter'
+require 'plugins.lsp'
+require 'plugins.cmp'
+require('langmapper').automapping({ global = true, buffer = true })
+
+-- Set highlight on search
+vim.o.hlsearch = false
+
+-- Make line numbers default
+vim.wo.number = true
+
+-- Enable mouse mode
+vim.o.mouse = 'a'
+
+-- Enable break indent
+vim.o.breakindent = true
+
+-- Save undo history
+vim.o.undofile = true
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- Keep signcolumn on by default
+vim.wo.signcolumn = 'yes'
+
+-- Decrease update time
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
+
+-- NOTE: You should make sure your terminal supports this
+vim.o.termguicolors = true
+
+vim.api.nvim_create_user_command("EBASH", function()
+  vim.api.nvim_input('<C-w>s')
+  vim.api.nvim_input('<C-j>:e term://bash<CR>')
+  local winsize = vim.api.nvim_win_get_height(0)
+  vim.api.nvim_input(':res -' .. math.ceil(winsize / 4) .. '<CR>')
+  vim.api.nvim_input('<C-k>\\')
+end, {})
+
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
