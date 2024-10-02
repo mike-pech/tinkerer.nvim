@@ -17,12 +17,12 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Fern Vinegar mode
 -- vim.keymap.set("n", "-", "<CMD>Fern .<CR>", { desc = "Open initial working directory" })
 
--- Godot debugging
-vim.keymap.set('n', '<leader>gd', require('godot').debugger.debug, { desc = 'Enter [G]odot [d]ebugger' })
-vim.keymap.set('n', '<leader>gb', require('godot').debugger.debug_at_cursor, { desc = 'Set [G]odot [b]reakpoint at cursor' })
-vim.keymap.set('n', '<leader>gs', require('godot').debugger.step, { desc = '[G]odot debugger [s]tep' })
-vim.keymap.set('n', '<leader>gc', require('godot').debugger.continue, { desc = '[G]odot debugger [c]ontinue' })
-vim.keymap.set('n', '<leader>gq', require('godot').debugger.quit, { desc = '[Q]uit [G]odot debugger' })
+-- Godot debugging — unused because I changed my mind on Godot.nvim
+-- vim.keymap.set('n', '<leader>gd', require('godot').debugger.debug, { desc = 'Enter [G]odot [d]ebugger' })
+-- vim.keymap.set('n', '<leader>gb', require('godot').debugger.debug_at_cursor, { desc = 'Set [G]odot [b]reakpoint at cursor' })
+-- vim.keymap.set('n', '<leader>gs', require('godot').debugger.step, { desc = '[G]odot debugger [s]tep' })
+-- vim.keymap.set('n', '<leader>gc', require('godot').debugger.continue, { desc = '[G]odot debugger [c]ontinue' })
+-- vim.keymap.set('n', '<leader>gq', require('godot').debugger.quit, { desc = '[Q]uit [G]odot debugger' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -34,4 +34,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-

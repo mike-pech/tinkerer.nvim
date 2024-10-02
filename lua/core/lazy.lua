@@ -18,7 +18,7 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
-  -- Surround plugin 
+  -- Surround plugin
   'tpope/vim-surround',
 
   -- Detect tabstop and shiftwidth automatically
@@ -35,17 +35,26 @@ require('lazy').setup({
   -- Preview CSS Colors
   'ap/vim-css-color',
 
-  -- Improved file explorer
+  -- Minimalistic, but outdated vinegar file explorer
   -- 'tpope/vim-vinegar',
 
   {
     -- Better file explorer with tree functionality!
     'lambdalisue/fern.vim',
+    -- Remove config contents if you wish to trash files instead of removing them
     config = function()
-      vim.cmd([[ 
-        let g:fern#default_hidden = 1 
-        let g:fern#renderer = "nerdfont" 
+      vim.cmd([[
+        let g:fern#default_hidden = 1
+        let g:fern#renderer = "nerdfont"
         call fern_git_status#init()
+        function! s:init_fern() abort
+          nmap <buffer> <Plug>(fern-action-trash) <Plug>(fern-action-remove)
+        endfunction
+
+        augroup fern-custom
+          autocmd! *
+          autocmd FileType fern call s:init_fern()
+        augroup END
       ]])
     end,
     keys = {
@@ -62,18 +71,18 @@ require('lazy').setup({
   -- tmux integration
   'christoomey/vim-tmux-navigator',
   cmd = {
-  "TmuxNavigateLeft",
-  "TmuxNavigateDown",
-  "TmuxNavigateUp",
-  "TmuxNavigateRight",
-  "TmuxNavigatePrevious",
+    "TmuxNavigateLeft",
+    "TmuxNavigateDown",
+    "TmuxNavigateUp",
+    "TmuxNavigateRight",
+    "TmuxNavigatePrevious",
   },
   keys = {
-  { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-  { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-  { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-  { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-  { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+    { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+    { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+    { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+    { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
   },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
@@ -96,7 +105,7 @@ require('lazy').setup({
   },
 
   {
-    -- Classic DAP debugger 
+    -- Classic DAP debugger
     'rcarriga/nvim-dap-ui',
     dependencies = {
       'mfussenegger/nvim-dap',
@@ -123,17 +132,17 @@ require('lazy').setup({
   },
 
   -- Support Russian keyboard layout
-  {
-    'Wansmer/langmapper.nvim',
-    lazy = false,
-    priority = 1, -- High priority is needed if you will use `autoremap()`
-    config = function()
-      require('langmapper').setup({--[[ your config ]]})
-    end,
-  },
+  -- {
+  --   'Wansmer/langmapper.nvim',
+  --   lazy = false,
+  --   priority = 1, -- High priority is needed if you will use `autoremap()`
+  --   config = function()
+  --     require('langmapper').setup({})
+  --   end,
+  -- },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -209,40 +218,50 @@ require('lazy').setup({
     },
   },
 
-  {
-    'Lommix/godot.nvim',
-  },
+  -- Meh... It could work, but Godot has a very robust
+  -- working environment so nvim here is redundant
+  -- {
+  --   'Lommix/godot.nvim',
+  -- },
+
   --  Generate beautiful snapshots of your code
-  --[[ {
+  --  Requires silicon binary (https://github.com/Aloxaf/silicon for instructions)
+  {
     'michaelrommel/nvim-silicon',
     lazy = true,
     cmd = "Silicon",
-    config = function ()
-      require("silicon").setup({
-        font = "InputMono Font=34",
-        theme = "gruvbox",
+    config = function()
+      require("nvim-silicon").setup({
+        font = "Maple Mono NF=24", -- Make sure to have the font installed on your machine!
+        background = "#202020",
+        theme = "gruvbox-dark",
+        no_line_number = true,
+        pad_vert = 80,
+        pad_horiz = 50,
         to_clipboard = true,
+        -- path = ".",
+        -- format = "silicon_[year]-[month]-[day]_[hour]-[minute]-[second].png",
         window_title = function()
           return vim.fn.fnamemodify(
             vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()),
             ":t"
-            )
+          )
         end,
       })
     end
 
-  }, ]]
+  },
 
   {
     -- 'adigitoleo/vim-mellow',     -- For light colorscheme
-    'ellisonleao/gruvbox.nvim',     -- For dark colorscheme
-    priority = 1000,
-    --[[ config = function()
-      vim.cmd "colorscheme mellow"
-      vim.cmd "set background=light"
-    end, ]]
-   config = function()
+    -- config = function()
+    -- vim.cmd "colorscheme mellow"
+    -- vim.cmd "set background=light"
+    -- end,
 
+    'ellisonleao/gruvbox.nvim', -- For dark colorscheme
+    priority = 1000,
+    config = function()
       vim.cmd "colorscheme gruvbox"
       vim.cmd "highlight LineNrAbove guifg=#ffcd76 guibg=NONE"
       vim.cmd "highlight LineNrBelow guifg=#ffcd76 guibg=NONE"
@@ -304,6 +323,12 @@ require('lazy').setup({
   },
 
   {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
+
+  {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
@@ -312,17 +337,4 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
 }, {})

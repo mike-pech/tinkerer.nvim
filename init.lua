@@ -3,11 +3,14 @@ vim.g.maplocalleader = ' '
 
 require 'core.lazy'
 require 'core.keybinds'
+require 'plugins.lsp'
 require 'plugins.telescope'
 require 'plugins.treesitter'
-require 'plugins.lsp'
 require 'plugins.cmp'
-require('langmapper').automapping({ global = true, buffer = true })
+
+-- Langmapper for the Russian keyboard layout
+-- kinda cool, but bloats the "which-key" sometimes
+-- require('langmapper').automapping({ global = true, buffer = true })
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -41,6 +44,8 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- For a powerful jumpstart of your coding session
+-- If your deadline is closing in, an additional shout of "EBASH!" may give an extra boost :D
 vim.api.nvim_create_user_command("EBASH", function()
   vim.api.nvim_input('<C-w>s')
   vim.api.nvim_input('<C-j>:e term://bash<CR>')
