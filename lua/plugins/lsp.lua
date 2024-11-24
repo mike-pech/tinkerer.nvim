@@ -20,7 +20,7 @@ local on_attach = function(_, bufnr)
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
   nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+  nmap('<leader>tds', require('telescope.builtin').lsp_document_symbols, '[T]elescope [D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
@@ -57,7 +57,7 @@ require('which-key').add({
 -- add which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
 require('which-key').add({
-  { '<leader>', name = 'VISUAL <leader>' },
+  { '<leader>',  name = 'VISUAL <leader>' },
   { '<leader>h', 'Git [H]unk' },
 }, { mode = 'v' })
 
@@ -80,10 +80,20 @@ local servers = {
   pyright = {},
   emmet_ls = {},
   cssls = {},
+  omnisharp = {
+    handlers = { ['textDocument/definition'] = require('omnisharp_extended').handler },
+    filetypes = { 'cs', 'csproj' },
+    cmd = {
+      'mono',
+      '--assembly-loader=strict',
+      '~/omnisharp-linux-x64/run', '--languageserver', '--hostPID', tostring(vim.fn.getpid())
+    },
+    use_mono = true,
+  },
   -- tsserver = {},
 
   -- rust_analyzer = {},
-  html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
 
   lua_ls = {
     Lua = {
@@ -119,4 +129,3 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
-

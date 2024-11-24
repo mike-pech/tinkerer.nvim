@@ -1,12 +1,18 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- disable netrw at the very start
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require 'core.lazy'
 require 'core.keybinds'
 require 'plugins.lsp'
 require 'plugins.telescope'
 require 'plugins.treesitter'
 require 'plugins.cmp'
+require 'plugins.formatter'
+require 'plugins.debugger'
 
 -- Langmapper for the Russian keyboard layout
 -- kinda cool, but bloats the "which-key" sometimes

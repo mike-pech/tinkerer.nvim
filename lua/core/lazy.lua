@@ -24,16 +24,11 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  {
-    -- Support Jupyter Notebooks
-    'dccsillag/magma-nvim',
-    dependencies = {
-      'neovim/pynvim',
-    }
-  },
-
   -- Preview CSS Colors
   'ap/vim-css-color',
+
+  -- Omnisharp extended LSP
+  'Hoffs/omnisharp-extended-lsp.nvim',
 
   -- Minimalistic, but outdated vinegar file explorer
   -- 'tpope/vim-vinegar',
@@ -112,6 +107,7 @@ require('lazy').setup({
       'nvim-neotest/nvim-nio',
     },
   },
+  'theHamsta/nvim-dap-virtual-text',
 
   {
     -- Autocompletion

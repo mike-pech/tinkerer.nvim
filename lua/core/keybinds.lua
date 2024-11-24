@@ -17,12 +17,15 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Fern Vinegar mode
 -- vim.keymap.set("n", "-", "<CMD>Fern .<CR>", { desc = "Open initial working directory" })
 
--- Godot debugging — unused because I changed my mind on Godot.nvim
--- vim.keymap.set('n', '<leader>gd', require('godot').debugger.debug, { desc = 'Enter [G]odot [d]ebugger' })
--- vim.keymap.set('n', '<leader>gb', require('godot').debugger.debug_at_cursor, { desc = 'Set [G]odot [b]reakpoint at cursor' })
--- vim.keymap.set('n', '<leader>gs', require('godot').debugger.step, { desc = '[G]odot debugger [s]tep' })
--- vim.keymap.set('n', '<leader>gc', require('godot').debugger.continue, { desc = '[G]odot debugger [c]ontinue' })
--- vim.keymap.set('n', '<leader>gq', require('godot').debugger.quit, { desc = '[Q]uit [G]odot debugger' })
+-- DAP debugging
+vim.keymap.set('n', '<leader>dt', ":lua require('dapui').toggle()<CR>", { desc = '[D]ebugger [T]oggle' })
+vim.keymap.set('n', '<leader>db', ":lua require'dap'.toggle_breakpoint()<CR>",
+  { desc = '[D]ebugger toggle [B]reakpoint' })
+vim.keymap.set('n', '<leader>dc', ":lua require'dap'.continue()<CR>",
+  { desc = '[D]ebugger [C]ontinue' })
+vim.keymap.set('n', '<leader>dsi', ":lua require'dap'.step_into()<CR>", { desc = '[D]ebugger [S]tep [I]nto' })
+vim.keymap.set('n', '<leader>dso', ":lua require'dap'.step_over()<CR>", { desc = '[D]ebugger [S]tep [O]ver' })
+vim.keymap.set('n', '<leader>dr', ":lua require('dapui').open({reset = true})<CR>", { desc = '[D]ebugger UI [R]eset' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
