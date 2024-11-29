@@ -7,6 +7,7 @@ vim.g.loaded_netrwPlugin = 1
 
 require 'core.lazy'
 require 'core.keybinds'
+require 'core.terminal'
 require 'plugins.lsp'
 require 'plugins.telescope'
 require 'plugins.treesitter'

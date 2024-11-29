@@ -9,6 +9,7 @@ Loosely based on [kickstart.nivm](https://github.com/nvim-lua/kickstart.nvim). A
 
 * Gruvbox theme (my faviourite)
 * Everything included in kickstart.nvim is here (perhaps)
+* A simple terminal drawer
 * telescope.nvim (requires `fzf` and `ripgrep` for the best experience)
 * Silicon.nvim for generating beautiful snapshots of your precious code 
     * Requires `silicon` binary and some configuration (Use \[S\]earch Live \[G\]rep `nvim-silicon` to get there :)
