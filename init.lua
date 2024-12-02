@@ -14,6 +14,7 @@ require 'plugins.treesitter'
 require 'plugins.cmp'
 require 'plugins.formatter'
 require 'plugins.debugger'
+require 'plugins.silicon'
 
 -- Langmapper for the Russian keyboard layout
 -- kinda cool, but bloats the "which-key" sometimes
