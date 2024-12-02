@@ -9,3 +9,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
     })
   end
 })
+vim.keymap.set({ 'n', 'v' }, 'p', 'p`[v`]=', { silent = true })
