@@ -77,7 +77,7 @@ require('mason-lspconfig').setup()
 local servers = {
   -- clangd = {},
   gopls = {},
-  pyright = {},
+  ruff = {},
   emmet_ls = {},
   cssls = {},
   omnisharp = {
