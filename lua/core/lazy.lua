@@ -44,6 +44,7 @@ require('lazy').setup({
         call fern_git_status#init()
         function! s:init_fern() abort
           nmap <buffer> <Plug>(fern-action-trash) <Plug>(fern-action-remove)
+          nmap <buffer> <C-B> <Plug>(fern-action-bookmark-add)
         endfunction
 
         augroup fern-custom
@@ -59,6 +60,8 @@ require('lazy').setup({
       { 'LumaKernel/fern-mapping-fzf.vim', dependencies = { 'junegunn/fzf' } },
       'lambdalisue/fern-renderer-nerdfont.vim',
       'lambdalisue/nerdfont.vim',
+      'lambdalisue/vim-fern-hijack',
+      'andykog/fern-bookmarks.vim',
       { 'lambdalisue/fern-git-status.vim', dependencies = { 'lambdalisue/vim-fern-mapping-git' } }
     }
   },

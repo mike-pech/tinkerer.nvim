@@ -20,10 +20,11 @@ Loosely based on [kickstart.nivm](https://github.com/nvim-lua/kickstart.nvim). A
 ## Requirements
 
 * NeoVim version `>=0.9.5`
+* Installations of your favourite languages. This config features Go, Python and lua
 * A Nerd Font
 * Optional
     * `fzf` and `ripgrep` for `telescope.nvim`
+    * For Windows users, `sh` and `find` command compatible with UNIX-like for `fzf` mappings in vim-fern.
     * `silicon` binary for code snapshots (more on Silicon [here](https://github.com/krivahtoo/silicon.nvim))
-    * Installations of your favourite languages. This config features Go, Python and lua
     * Debuggers for the languages of your choice (can be found [here](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation))
 
