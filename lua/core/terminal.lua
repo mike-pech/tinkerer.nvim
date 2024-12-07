@@ -44,11 +44,21 @@ function ToggleTerminal(position)
 end
 
 vim.keymap.set('n', '<leader>tk', function() ToggleTerminal('K') end,
-  { desc = 'Toggle [T]erminal horizontal [S]plit up' })
+  { desc = 'Toggle [T]erminal horizontal split up' })
 vim.keymap.set('n', '<leader>tj', function() ToggleTerminal('J') end,
-  { desc = 'Toggle [T]erminal horizontal [S]plit down' })
+  { desc = 'Toggle [T]erminal horizontal split down' })
 
 vim.keymap.set('n', '<leader>tl', function() ToggleTerminal('L') end,
   { desc = 'Toggle [T]erminal [V]ertical split right' })
 vim.keymap.set('n', '<leader>th', function() ToggleTerminal('H') end,
-  { desc = 'Toggle [T]erminal horizontal [S]plit left' })
+  { desc = 'Toggle [T]erminal horizontal split left' })
+
+function TimeOut(game_path)
+  vim.api.nvim_command("au TermOpen * setlocal nonumber norelativenumber")
+  vim.api.nvim_command("tab term")
+  vim.api.nvim_input("i" .. game_path .. "<CR>")
+end
+
+-- Put your favourite TUI game (or any other fun TUI thingy) in here!
+vim.keymap.set('n', '<leader>tt', function() TimeOut("vitetris") end,
+  { desc = 'Time out! Let\'s have a break!' })
