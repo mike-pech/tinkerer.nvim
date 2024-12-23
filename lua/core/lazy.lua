@@ -112,6 +112,7 @@ require('lazy').setup({
   },
   'theHamsta/nvim-dap-virtual-text',
   'leoluz/nvim-dap-go',
+  'mfussenegger/nvim-dap-python',
 
   {
     -- Autocompletion

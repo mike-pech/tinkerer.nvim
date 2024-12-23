@@ -17,16 +17,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Fern Vinegar mode
 -- vim.keymap.set("n", "-", "<CMD>Fern .<CR>", { desc = "Open initial working directory" })
 
--- DAP debugging
-vim.keymap.set('n', '<leader>dt', ":lua require('dapui').toggle()<CR>", { desc = '[D]ebugger [T]oggle' })
-vim.keymap.set('n', '<leader>db', ":lua require'dap'.toggle_breakpoint()<CR>",
-  { desc = '[D]ebugger toggle [B]reakpoint' })
-vim.keymap.set('n', '<leader>dc', ":lua require'dap'.continue()<CR>",
-  { desc = '[D]ebugger [C]ontinue' })
-vim.keymap.set('n', '<leader>dsi', ":lua require'dap'.step_into()<CR>", { desc = '[D]ebugger [S]tep [I]nto' })
-vim.keymap.set('n', '<leader>dso', ":lua require'dap'.step_over()<CR>", { desc = '[D]ebugger [S]tep [O]ver' })
-vim.keymap.set('n', '<leader>dr', ":lua require('dapui').open({reset = true})<CR>", { desc = '[D]ebugger UI [R]eset' })
-
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

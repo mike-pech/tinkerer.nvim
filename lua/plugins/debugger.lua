@@ -2,7 +2,7 @@ require('dapui').setup()
 
 local dap = require('dap')
 
--- make sure to install 'debugpy' into your venv
+-- make sure to install 'debugpy' via :Mason
 dap.configurations.python = {
   {
     type = 'python',
@@ -93,3 +93,13 @@ dap.adapters.lldb = {
   command = '/usr/bin/lldb', -- adjust as needed, must be absolute path
   name = 'lldb'
 }
+
+-- DAP debugging keybinds
+vim.keymap.set('n', '<leader>dt', ":lua require('dapui').toggle()<CR>", { desc = '[D]ebugger [T]oggle' })
+vim.keymap.set('n', '<leader>db', ":lua require'dap'.toggle_breakpoint()<CR>",
+  { desc = '[D]ebugger toggle [B]reakpoint' })
+vim.keymap.set('n', '<leader>dc', ":lua require'dap'.continue()<CR>",
+  { desc = '[D]ebugger [C]ontinue' })
+vim.keymap.set('n', '<leader>dsi', ":lua require'dap'.step_into()<CR>", { desc = '[D]ebugger [S]tep [I]nto' })
+vim.keymap.set('n', '<leader>dso', ":lua require'dap'.step_over()<CR>", { desc = '[D]ebugger [S]tep [O]ver' })
+vim.keymap.set('n', '<leader>dr', ":lua require('dapui').open({reset = true})<CR>", { desc = '[D]ebugger UI [R]eset' })

@@ -63,7 +63,15 @@ require('which-key').add({
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
-require('mason').setup()
+require('mason').setup({
+  ui = {
+    icons = {
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗"
+    }
+  }
+})
 require('mason-lspconfig').setup()
 
 -- Enable the following language servers
@@ -77,7 +85,20 @@ require('mason-lspconfig').setup()
 local servers = {
   -- clangd = {},
   gopls = {},
-  ruff = {},
+  pyright = {
+    filetypes = { 'python' },
+    settings = {
+      pyright = {
+        disableOrganizeImports = true, -- Using Ruff
+      },
+      python = {
+        analysis = {
+          ignore = { '*' }, -- Using Ruff
+        },
+      },
+    },
+  },
+  ruff = { filetypes = { 'python' } },
   emmet_ls = {},
   cssls = {},
   omnisharp = {
@@ -117,6 +138,7 @@ local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
+  automatic_installation = true,
 }
 
 mason_lspconfig.setup_handlers {
