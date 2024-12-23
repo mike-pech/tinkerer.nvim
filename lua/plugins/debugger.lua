@@ -3,6 +3,7 @@ require('dapui').setup()
 local dap = require('dap')
 
 -- make sure to install 'debugpy' via :Mason
+require("dap-python").setup("python")
 dap.configurations.python = {
   {
     type = 'python',
