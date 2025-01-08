@@ -16,10 +16,6 @@ require 'plugins.formatter'
 require 'plugins.debugger'
 require 'plugins.silicon'
 
--- Langmapper for the Russian keyboard layout
--- kinda cool, but bloats the "which-key" sometimes
--- require('langmapper').automapping({ global = true, buffer = true })
-
 -- Set highlight on search
 vim.o.hlsearch = false
 
