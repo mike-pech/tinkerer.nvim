@@ -21,7 +21,7 @@ local on_attach = function(_, bufnr)
   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
   nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
   nmap('<leader>tds', require('telescope.builtin').lsp_document_symbols, '[T]elescope [D]ocument [S]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  nmap('<leader>dws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[D]ynamic [W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')

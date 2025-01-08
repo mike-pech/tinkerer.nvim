@@ -16,6 +16,19 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 vim.keymap.set('n', '<leader>ve', '<cmd>VenvSelect<CR>', { desc = '[V]irtual [E]nvironment select' })
 
+-- Window Split keymaps
+vim.keymap.set('n', '<leader>ws', '<cmd>sp<CR>', { desc = '[W]indow [S]plit horizontal' })
+vim.keymap.set('n', '<leader>wv', '<cmd>vs<CR>', { desc = '[W]indow [V]ertical split' })
+
+-- Window resize
+local sizemod = 4
+-- Horizontal
+vim.keymap.set('n', '<leader>w=', sizemod .. '<C-w>+', { desc = '[W]indow height increase' })
+vim.keymap.set('n', '<leader>w-', sizemod .. '<C-w>-', { desc = '[W]indow height decrease' })
+-- Vertical
+vim.keymap.set('n', '<leader>w>', sizemod .. '<C-w>>', { desc = '[W]indow width increase' })
+vim.keymap.set('n', '<leader>w<', sizemod .. '<C-w><', { desc = '[W]indow width decrease' })
+
 -- Fern Vinegar mode
 -- vim.keymap.set("n", "-", "<CMD>Fern .<CR>", { desc = "Open initial working directory" })
 
