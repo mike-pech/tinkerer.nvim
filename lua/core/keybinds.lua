@@ -19,6 +19,8 @@ vim.keymap.set('n', '<leader>ve', '<cmd>VenvSelect<CR>', { desc = '[V]irtual [E]
 -- Window Split keymaps
 vim.keymap.set('n', '<leader>ws', '<cmd>sp<CR>', { desc = '[W]indow [S]plit horizontal' })
 vim.keymap.set('n', '<leader>wv', '<cmd>vs<CR>', { desc = '[W]indow [V]ertical split' })
+vim.keymap.set('n', '<leader>wj', '<cmd>sp<CR>', { desc = '[W]indow [S]plit horizontal' })
+vim.keymap.set('n', '<leader>wl', '<cmd>vs<CR>', { desc = '[W]indow [V]ertical split' })
 
 -- Window resize
 local sizemod = 4
