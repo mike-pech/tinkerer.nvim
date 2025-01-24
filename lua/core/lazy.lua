@@ -30,9 +30,6 @@ require('lazy').setup({
   -- Omnisharp extended LSP
   'Hoffs/omnisharp-extended-lsp.nvim',
 
-  -- Minimalistic, but outdated vinegar file explorer
-  -- 'tpope/vim-vinegar',
-
   {
     -- Better file explorer with tree functionality!
     'lambdalisue/fern.vim',
@@ -147,16 +144,6 @@ require('lazy').setup({
     },
   },
 
-  -- Support Russian keyboard layout
-  -- {
-  --   'Wansmer/langmapper.nvim',
-  --   lazy = false,
-  --   priority = 1, -- High priority is needed if you will use `autoremap()`
-  --   config = function()
-  --     require('langmapper').setup({})
-  --   end,
-  -- },
-
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
   {
@@ -234,12 +221,6 @@ require('lazy').setup({
     },
   },
 
-  -- Meh... It could work, but Godot has a very robust
-  -- working environment so nvim here is redundant
-  -- {
-  --   'Lommix/godot.nvim',
-  -- },
-
   --  Generate beautiful snapshots of your code
   --  Requires silicon binary (https://github.com/Aloxaf/silicon for instructions)
   {
@@ -249,21 +230,14 @@ require('lazy').setup({
   },
 
   {
-    -- 'adigitoleo/vim-mellow',     -- For light colorscheme
-    -- config = function()
-    -- vim.cmd "colorscheme mellow"
-    -- vim.cmd "set background=light"
-    -- end,
-
-    'ellisonleao/gruvbox.nvim', -- For dark colorscheme
+    'ellisonleao/gruvbox.nvim',
     priority = 1000,
     config = function()
       vim.cmd "colorscheme gruvbox"
       vim.cmd "highlight LineNrAbove guifg=#ffcd76 guibg=NONE"
       vim.cmd "highlight LineNrBelow guifg=#ffcd76 guibg=NONE"
       vim.cmd "highlight SignColumn guibg=NONE"
-      -- vim.cmd "highlight Visual guifg=#404040"
-      vim.cmd "hi Normal guibg=NONE ctermbg=NONE"
+      vim.cmd "hi Normal ctermbg=NONE"
       vim.cmd "set cursorline"
       vim.cmd "set number"
       -- vim.cmd "set relativenumber"
