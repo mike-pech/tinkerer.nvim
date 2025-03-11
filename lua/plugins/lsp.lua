@@ -88,7 +88,9 @@ require('mason-lspconfig').setup()
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
+
   gopls = {},
+
   pyright = {
     filetypes = { 'python' },
     settings = {
@@ -103,21 +105,9 @@ local servers = {
     },
   },
   ruff = { filetypes = { 'python' } },
+
   emmet_ls = {},
   cssls = {},
-  omnisharp = {
-    handlers = { ['textDocument/definition'] = require('omnisharp_extended').handler },
-    filetypes = { 'cs', 'csproj' },
-    cmd = {
-      'mono',
-      '--assembly-loader=strict',
-      '~/omnisharp-linux-x64/run', '--languageserver', '--hostPID', tostring(vim.fn.getpid())
-    },
-    use_mono = true,
-  },
-  -- tsserver = {},
-
-  -- rust_analyzer = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
 
   lua_ls = {

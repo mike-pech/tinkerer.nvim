@@ -27,9 +27,6 @@ require('lazy').setup({
   -- Preview CSS Colors
   'ap/vim-css-color',
 
-  -- Omnisharp extended LSP
-  'Hoffs/omnisharp-extended-lsp.nvim',
-
   {
     -- Better file explorer with tree functionality!
     'lambdalisue/fern.vim',
@@ -145,7 +142,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -267,9 +264,6 @@ require('lazy').setup({
     opts = {},
   },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -293,12 +287,6 @@ require('lazy').setup({
   },
 
   {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
-  },
-
-  {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
@@ -306,5 +294,4 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-
-}, {})
+})

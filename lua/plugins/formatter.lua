@@ -1,3 +1,4 @@
+-- Format on write (":w")
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp", { clear = true }),
   callback = function(args)
@@ -9,4 +10,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     })
   end
 })
+
+-- Format on paste ("p")
 vim.keymap.set({ 'n', 'v' }, 'p', 'p`[v`]=', { silent = true })
