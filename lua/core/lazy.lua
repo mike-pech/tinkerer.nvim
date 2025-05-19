@@ -39,6 +39,7 @@ require('lazy').setup({
         function! s:init_fern() abort
           nmap <buffer> <Plug>(fern-action-trash) <Plug>(fern-action-remove)
           nmap <buffer> <C-B> <Plug>(fern-action-bookmark-add)
+          nmap <buffer> r <Plug>(fern-action-reload)
         endfunction
 
         augroup fern-custom

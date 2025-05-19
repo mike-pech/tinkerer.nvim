@@ -9,8 +9,8 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '[d', vim.diagnostic.get_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.get_prev, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
@@ -30,6 +30,8 @@ vim.keymap.set('n', '<leader>w-', sizemod .. '<C-w>-', { desc = '[W]indow height
 -- Vertical
 vim.keymap.set('n', '<leader>w>', sizemod .. '<C-w>>', { desc = '[W]indow width increase' })
 vim.keymap.set('n', '<leader>w<', sizemod .. '<C-w><', { desc = '[W]indow width decrease' })
+-- Align (might seem counter-intuitive, but this action is used far less frequently than '<C-w>+')
+vim.keymap.set('n', '<leader>w+', sizemod .. '<C-w>=', { desc = '[W]indow size align' })
 
 -- Fern Vinegar mode
 -- vim.keymap.set("n", "-", "<CMD>Fern .<CR>", { desc = "Open initial working directory" })
