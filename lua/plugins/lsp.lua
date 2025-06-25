@@ -133,9 +133,7 @@ local mason_lspconfig = require 'mason-lspconfig'
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
   automatic_installation = true,
-}
-
-mason_lspconfig.setup_handlers {
+  handlers = {
   function(server_name)
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
@@ -144,4 +142,5 @@ mason_lspconfig.setup_handlers {
       filetypes = (servers[server_name] or {}).filetypes,
     }
   end,
+  },
 }
