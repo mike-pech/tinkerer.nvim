@@ -62,5 +62,7 @@ vim.defer_fn(function()
       },
     },
   }
+  require 'treesitter-context'.setup {
+    multiwindow = true,
+  }
 end, 0)
-

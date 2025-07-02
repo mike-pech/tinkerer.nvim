@@ -295,4 +295,7 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+
+  -- Show context of the code
+  'nvim-treesitter/nvim-treesitter-context',
 })
