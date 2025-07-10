@@ -27,6 +27,9 @@ require('lazy').setup({
   -- Preview CSS Colors
   'ap/vim-css-color',
 
+  -- Preview Markdown in Normal mode
+  'MeanderingProgrammer/render-markdown.nvim',
+
   {
     -- Better file explorer with tree functionality!
     'lambdalisue/fern.vim',
